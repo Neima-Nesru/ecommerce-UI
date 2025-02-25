@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Sidebar from "../component/Sidebar";
-import MyCars from "../component/MyCars";
-import Bookings from "../component/Bookings";
-import Account from "../component/Account";
+import Sidebar from "./Sidebar";
+import MyCars from "./MyCars";
+import Bookings from "./Bookings";
+import Account from "./Account";
 
-const Dashboard = () => {
+const Main = () => {
   const [activeSection, setActiveSection] = useState("myCars");
 
   return (
@@ -19,4 +19,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Main;

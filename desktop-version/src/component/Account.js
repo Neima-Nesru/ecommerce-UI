@@ -1,27 +1,27 @@
 import React from "react";
 import { Switch } from "@headlessui/react";
-
+import ryan from '../assets/Ryan.jpg'
 const Account = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="bg-white w-3/5 rounded-2xl shadow-lg p-6">
         <div className="flex items-center space-x-4">
           <img
-            src="https://via.placeholder.com/80"
+            src={ryan}
             alt="Profile"
             className="w-20 h-20 rounded-full"
           />
           <div>
             <h2 className="text-xl font-semibold">Ryan Schnetzer</h2>
             <p className="text-gray-500">ryansc@gmail.com</p>
-            <button className="mt-2 px-4 py-2 bg-green-500 text-white rounded-lg text-sm">
+            <button className="mt-2 px-4 py-2 bg-green-500 text-white rounded-full text-sm">
               Edit Profile
             </button>
           </div>
         </div>
         
         <div className="mt-6">
-          <h3 className="text-lg font-semibold text-gray-700">Content</h3>
+          <h3 className="text-lg font-semibold text-gray-400">Content</h3>
           <div className="mt-2 space-y-2">
             <MenuItem title="My Details" />
             <MenuItem title="My Vehicles" />
@@ -29,7 +29,7 @@ const Account = () => {
         </div>
         
         <div className="mt-6">
-          <h3 className="text-lg font-semibold text-gray-700">Performance</h3>
+          <h3 className="text-lg font-semibold text-gray-400">Performance</h3>
           <div className="mt-2 space-y-2">
             <MenuItem title="Language" />
             <MenuItem title="My Payment Methods" hasSwitch={true} enabled={true} />

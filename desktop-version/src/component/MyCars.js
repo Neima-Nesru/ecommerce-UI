@@ -1,11 +1,16 @@
 import React from "react";
+import car from '../assets/car.png'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 const MyCars = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white w-3/5 rounded-2xl shadow-lg p-6">
+      <div className="w-3/5 p-6">
         <h2 className="text-2xl font-bold text-center">My Cars</h2>
-        <p className="text-green-600 text-center mt-1 cursor-pointer">🚗 Show my vehicle on the map</p>
+        <p className="text-green-600 text-center mt-1 cursor-pointer">
+          <FontAwesomeIcon icon={faMapMarkerAlt} className="text-blue-500 text-lg" /> <span className="text-gray-500">Show my vehicle on the map</span> 
+        </p>
         
         <div className="grid grid-cols-2 gap-4 mt-4">
           <InfoCard title="Remaining Time" value="20 hr" subtitle="Slot B-027" />
@@ -13,7 +18,7 @@ const MyCars = () => {
         </div>
         
         <div className="flex justify-center my-6">
-          <img src="https://via.placeholder.com/300" alt="Car" className="w-1/2 rounded-lg" />
+          <img src={car} alt="Car" className="w-1/2 rounded-lg" />
         </div>
         
         <div className="mt-6">
@@ -26,7 +31,7 @@ const MyCars = () => {
           </div>
         </div>
         
-        <button className="mt-6 w-full bg-green-500 text-white py-3 rounded-lg text-lg font-semibold">
+        <button className="mt-6 w-full bg-green-500 text-white py-3 rounded-full text-lg font-semibold">
           Show More Details
         </button>
       </div>
