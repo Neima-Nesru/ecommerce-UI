@@ -1,7 +1,6 @@
 import React from "react";
-import { Switch } from "@headlessui/react";
 import ryan from '../assets/Ryan.jpg'
-import { FaArrowRight, FaCar, FaLongArrowAltRight, FaUser } from "react-icons/fa";
+import { FaArrowRight, FaCar, FaUser } from "react-icons/fa";
 
 import { useState } from "react";
 
@@ -11,7 +10,7 @@ const Account = () => {
   
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white w-3/5 rounded-2xl shadow-lg p-6">
+      <div className=" w-3/5 rounded-2xl p-6">
         <div className="flex items-center space-x-4">
           <img
             src={ryan}
@@ -52,7 +51,7 @@ const Account = () => {
 
 const MenuItem = ({ title, hasSwitch = false, enabled = false }) => {
   return (
-    <div className="flex justify-between items-center p-4 bg-white rounded-lg hover:bg-gray-100 transition">
+    <div className="flex justify-between items-center p-4 rounded-lg cursor:pointer">
       <span className="text-gray-700 font-medium">{title === "My Details" ? 
         <div className="flex items-center justify-center">    
           <div className="p-2 w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center mr-4">
