@@ -1,7 +1,14 @@
 import React from "react";
 import { Switch } from "@headlessui/react";
 import ryan from '../assets/Ryan.jpg'
+import { FaArrowRight, FaCar, FaLongArrowAltRight, FaUser } from "react-icons/fa";
+
+import { useState } from "react";
+
+
+
 const Account = () => {
+  
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="bg-white w-3/5 rounded-2xl shadow-lg p-6">
@@ -45,29 +52,47 @@ const Account = () => {
 
 const MenuItem = ({ title, hasSwitch = false, enabled = false }) => {
   return (
-    <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:bg-gray-100 transition">
-      <span className="text-gray-700 font-medium">{title}</span>
-      {hasSwitch ? <SwitchComponent enabled={enabled} /> : <ArrowIcon />}
+    <div className="flex justify-between items-center p-4 bg-white rounded-lg hover:bg-gray-100 transition">
+      <span className="text-gray-700 font-medium">{title === "My Details" ? 
+        <div className="flex items-center justify-center">    
+          <div className="p-2 w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center mr-4">
+            <FaUser className="text-gray-700 text-xl " />
+          </div> {title}
+        </div>: 
+                <div className="flex items-center justify-center">    
+                <div className="p-2 w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center mr-4">
+                  <FaCar className="text-gray-700 text-xl " />
+                </div> {title}
+              </div>
+      
+      }
+    </span>
+      {hasSwitch ? <ToggleButton/> : <FaArrowRight className="text-gray-400"/>}
     </div>
   );
 };
 
-const SwitchComponent = ({ enabled }) => {
-  return (
-    <Switch
-      checked={enabled}
-      className={`$ {enabled ? "bg-green-500" : "bg-gray-300"} relative inline-flex h-6 w-11 items-center rounded-full`}
-    >
-      <span className="sr-only">Toggle</span>
-      <span
-        className={`$ {enabled ? "translate-x-6" : "translate-x-1"} inline-block h-4 w-4 transform bg-white rounded-full transition`}
-      />
-    </Switch>
-  );
-};
+;
 
-const ArrowIcon = () => {
-  return <span className="text-gray-400">▶</span>;
-};
 
 export default Account;
+
+
+const ToggleButton = () => {
+  const [isOn, setIsOn] = useState(false);
+
+  return (
+    <button
+      onClick={() => setIsOn(!isOn)}
+      className={`w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 transition ${
+        isOn ? "bg-green-500" : "bg-gray-300"
+      }`}
+    >
+      <div
+        className={`w-5 h-5 bg-white rounded-full shadow-md transform transition ${
+          isOn ? "translate-x-6" : "translate-x-0"
+        }`}
+      />
+    </button>
+  );
+};

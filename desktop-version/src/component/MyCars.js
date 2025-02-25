@@ -2,6 +2,8 @@ import React from "react";
 import car from '../assets/car.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { FaAlignCenter, FaAlignJustify, FaCar } from "react-icons/fa";
+import us from '../assets/us.png'
 
 const MyCars = () => {
   return (
@@ -9,7 +11,7 @@ const MyCars = () => {
       <div className="w-3/5 p-6">
         <h2 className="text-2xl font-bold text-center">My Cars</h2>
         <p className="text-green-600 text-center mt-1 cursor-pointer">
-          <FontAwesomeIcon icon={faMapMarkerAlt} className="text-blue-500 text-lg" /> <span className="text-gray-500">Show my vehicle on the map</span> 
+          <FontAwesomeIcon icon={faMapMarkerAlt} className="text-green-500 text-md" /> <span className="text-gray-400">Show my vehicle on the map</span> 
         </p>
         
         <div className="grid grid-cols-2 gap-4 mt-4">
@@ -27,7 +29,7 @@ const MyCars = () => {
             <DetailRow label="Policy Number" value="PI1006987" />
             <DetailRow label="Insurance Type" value="Fault Insurance (FI)" />
             <DetailRow label="Car Model" value="BMW X7" />
-            <DetailRow label="Plate Number" value="7KJL890 🇺🇸" />
+            <DetailRow label="Plate Number" value="7KJL890" />
           </div>
         </div>
         
@@ -40,8 +42,8 @@ const MyCars = () => {
 };
 
 const InfoCard = ({ title, value, subtitle }) => (
-  <div className="bg-gray-50 p-4 rounded-lg shadow-sm text-center">
-    <h4 className="text-gray-700 font-medium">{title}</h4>
+  <div className="bg-white p-4 rounded-lg shadow-sm text-center">
+    <h4 className="text-gray-400 font-medium">{title}</h4>
     <p className="text-2xl font-bold text-gray-900">{value}</p>
     <p className="text-gray-500 text-sm">{subtitle}</p>
   </div>
@@ -50,8 +52,26 @@ const InfoCard = ({ title, value, subtitle }) => (
 const DetailRow = ({ label, value }) => (
   <div className="flex justify-between items-center py-2 border-b last:border-none">
     <span className="text-gray-600">{label}</span>
-    <span className="text-gray-900 font-medium">{value}</span>
-  </div>
+    <span className="text-gray-900 font-medium">
+  {value === "BMW X7" ? (
+    <>
+      <FaCar className="inline-block mr-2" /> {value}
+    </>
+  ) : value === "7KJL890" ? (
+    <>
+       {value} 
+       <img src={us} alt="USA Flag" className="w-6 h-4 pl-1 inline" />
+    </>
+  ) : value === 'PI1006987' ? (
+    <>
+      <FaAlignJustify className="inline-block mr-2 text-gray-700" />{value}
+    </>
+  ) : (
+  value
+  )}
+</span>
+
+    </div>
 );
 
 export default MyCars;

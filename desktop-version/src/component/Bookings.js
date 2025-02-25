@@ -1,7 +1,12 @@
 import React from "react";
-import { FaPhone } from "react-icons/fa";
 import car from '../assets/car.jpg'
 import parking from '../assets/parking.jpg'
+import apple from '../assets/apple.png'
+import visa from '../assets/visa.png'
+import gpay from '../assets/gpay.png'
+import stripe from '../assets/stripe.webp'
+import mastercard from '../assets/matercard.svg'
+import { FaPhone } from "react-icons/fa";
 
 const Bookings = () => {
   return (
@@ -30,9 +35,11 @@ const Bookings = () => {
         
         <h3 className="text-lg font-semibold mt-6">Payment Methods</h3>
         <div className="flex space-x-4 mt-2">
+          
           <PaymentMethod name="Apple Pay" />
           <PaymentMethod name="Stripe" />
           <PaymentMethod name="Visa" />
+          <PaymentMethod name="Mastercard" />
           <PaymentMethod name="Google Pay" />
         </div>
         
@@ -64,9 +71,32 @@ const Tab = ({ label, active }) => (
   <button className={`px-4 py-2 font-medium ${active ? "bg-green-500 text-white rounded-full" : "text-gray-600"}`}>{label}</button>
 );
 
-const PaymentMethod = ({ name }) => (
-  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black font-medium font-sm">{name}</div>
-);
+const PaymentMethod = ({ name }) => {
+  const getIcon = (name) => {
+    switch (name) {
+      case "Apple Pay":
+        return <img src={apple} alt="Apple Pay" className="h-8" />;
+      case "Stripe":
+        return <img src={stripe} alt="Stripe" className="h-4" />;
+      case "Visa":
+        return <img src={visa} alt="Visa" className="h-6" />;
+      case "Mastercard":
+        return <img src={mastercard} alt="Mastercard" className="h-8" />;
+      case "Google Pay":
+        return <img src={gpay} alt="Google Pay" className="h-8" />;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="flex justify-center space-x-6">
+      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+        {getIcon(name)}
+      </div>
+    </div>
+  );
+};
 
 const TimeSlot = ({ time, label, active }) => (
   <div className={`bg-white p-4 rounded-full shadow-sm text-center ${active ? "text-bold-500" : ""}`}>
